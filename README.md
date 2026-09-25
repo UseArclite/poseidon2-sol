@@ -75,9 +75,14 @@ All `internal pure`. The library has no storage and no external calls.
 
 ## Gas
 
-Roughly 79k for `hash2`, 158k for a four-element `hash`, measured by the test suite above. Poseidon
-is expensive on EVM; that is inherent to hashing in a prime field with 64 rounds, not specific to
-this implementation. If you are hashing a deep Merkle path on chain, budget for it.
+Approximately **77k** for `hash2` and **135k** for a four-element `hash`, measured through an
+external call with the call overhead and storage write subtracted. (`forge test` reports somewhat
+higher numbers for the assertion tests — those include harness overhead, so do not quote them as
+the library's cost.)
+
+Poseidon is expensive on EVM. That is inherent to hashing in a prime field over 64 rounds, not
+specific to this implementation. If you are hashing a depth-24 Merkle path on chain, budget
+roughly 1.8M gas for the path alone.
 
 ## Provenance
 
