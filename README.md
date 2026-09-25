@@ -88,7 +88,3 @@ hash the settlement circuit is proved against.
 ## Licence
 
 MIT. See `LICENSE`.
-
-This code has not been audited. It is published because the parity problem is one other people
-will hit and the vectors are worth having; that is not a recommendation to hold funds with it
-unexamined.
